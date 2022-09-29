@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Percabangan Switch/Case</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var grade = prompt("Masukkan Grade Nilai (A, B, C, D, E,)");
+		var bobot;
+		switch(grade){
+			case 'A' :
+			bobot = 4;
+			break;
+			case 'B':
+			bobot = 3;
+			break;
+			case 'C':
+			bobot = 2;
+			break;
+			case 'D':
+			bobot = 1;
+			break;
+			default:
+			bobot = 0;
+		}
+		document.write("Bobot nilai = "+bobot);
+	</script>
+</body>
+</html>
