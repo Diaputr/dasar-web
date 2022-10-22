@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="styleSlide.css">
+	<script src="jquery-3.6.1.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#flip").click(function(){
+				$("#kotak2").slideDown("slow");
+			})
+		})
+	</script>
+</head>
+<body>
+	<div id="flip">Klik untuk Efek Slide</div>
+	<div id="kotak2" style="display: none;">Selamat Pagi</div>
+</body>
+</html>
