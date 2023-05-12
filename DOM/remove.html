@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Remove HTML Element</title>
+</head>
+<body>
+	<div id="mydiv">
+		<p id="p1">My first paragraph</p>
+		<p id="p2">My second paragraph</p>
+	</div>
+	<script type="text/javascript">
+		var parent = document.getElementById("mydiv");
+		var child = document.getElementById("p2");
+		parent.removeChild(child);
+	</script>
+</body>
+</html>

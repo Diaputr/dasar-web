@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Access HTML DOM</title>
+</head>
+<body>
+	<p id="demo"></p>
+	<script type="text/javascript">
+		document.getElementById("demo").innerHTML = "Hello World!";
+	</script>
+	<h1>I am good at Javascript</h1>
+	<h1>Javascript is so much fun</h1>
+	<script type="text/javascript">
+		const element = document.getElementsByTagName("h1");
+		document.getElementById("demo").innerHTML = "The content of first h1 is : "+element[0].innerHTML;
+	</script>
+	<p class="
+	name">Diah Putri Nofianti</p>
+	<script type="text/javascript">
+		const x = document.getElementsByClassName("name");
+		document.getElementById("demo").innerHTML = "My name is "+x[0].innerHTML;
+	</script>
+</body>
+</html>

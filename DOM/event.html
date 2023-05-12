@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Event Javascript</title>
+</head>
+<body>
+	<div id="div">
+		<label>First Name : </label><input type="text" id="first"><br>
+		<label>Last Name : </label><input type="text" id="last"><br>
+		<button type="submit" onclick="getValue()">submit</button>
+	</div>
+	<script type="text/javascript">
+		function getValue(){
+			var first = document.getElementById("first").value;
+			var last = document.getElementById("last").value;
+			var par = document.createElement("p");
+			var node = document.createTextNode("Hello "+first+" "+last);
+			par.appendChild(node);
+			document.getElementById("div").appendChild(par);
+		}
+	</script>
+</body>
+</html>

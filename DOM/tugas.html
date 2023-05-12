@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tugas Form Validasi</title>
+	<style type="text/css">
+		body {
+			font-family: Trebuchet MS;
+			background-image: url(https://i.pinimg.com/originals/f7/84/ed/f784ed04fbce4e158b803cdc43e18514.png);
+		}
+
+		h1 {
+			text-align: center;
+			padding: 25px;
+		}
+
+		form {
+			width: 60%;
+			margin: auto;
+			padding: 20px;
+			border-radius: 25px;
+			background-color: lightblue;
+		} 
+
+		input, textarea{
+			width: 75%;
+			height: 25px;
+			border: none;
+			border-radius: 5px;
+			padding: 5px;
+		}
+
+		textarea{
+			height: 80px;
+		}
+
+		.ro{
+			font-weight: bolder;
+			background-color: lavender;
+		}
+
+		.cek{
+			width: 50px;
+			height: 15px;
+		}
+
+		.part1 h3, .part2 h3 {
+			width: 50%;
+			padding: 10px;
+			padding-left: 50px;
+			background-color: lavender;
+			border-radius: 5px;
+			margin-left: -60px;
+		}
+
+		.part1{
+			margin: -20px 50px;
+		}
+
+		.part2 {
+			margin: 80px 0 10px 50px;
+		}
+
+		.btn-s, .btn-r{
+			margin: auto;
+			width: 150px;
+			height: 40px;
+			border: none;
+			border-radius: 10px;
+			padding: 10px 20px;
+			background-color: white;
+			font-weight: bolder;
+		}
+
+		.btn-s:hover{
+			background-color: limegreen;
+			color: white;
+		}
+
+		.btn-r:hover{
+			background-color: darkslategray;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<h1>Formulir Permohonan Barang</h1>
+	<form name="myForm" method="POST" action="percobaan1.html" onsubmit="return validateForm()">
+		<div class="part1">
+			<h3>Informasi Pemohon</h3>
+			<p>Email</p>
+			<input type="email" name="f-email" placeholder="alamatsurel@domain">
+			<p>Nama Lengkap</p>
+			<input type="text" name="f-name" placeholder="Nama Lengkap Anda">
+			<p>Alamat</p>
+			<input type="text" name="f-address" placeholder="Jl. Kota - Provinsi">
+		</div>
+		<div class="part2">
+			<h3>Informasi Lanjutan</h3>
+			<p>Kode Permohonan</p>
+			<input type="text" value="PRM202209" readonly class="ro">
+			<p>Tanggal</p>
+			<input type="date" name="f-date" onload="getToday()">
+			<p></p>
+			<p>Nama Barang</p>
+			<input type="text" name="f-item" placeholder="1 Item">
+			<p>Jumlah</p>
+			<input type="text" name="f-qty" placeholder="Minimal : 3">
+			<p>Keterangan</p>
+			<textarea placeholder="Tidak diharuskan mengisi, namun terdapat maksimal 255 karakter." name="f-detail"></textarea><br><br>
+			<input type="checkbox" name="f-check" class="cek" required>Saya menyetujui S&K yang berlaku*<br><br>
+			<input type="submit" class="btn-s" value="SUBMIT">
+			<input type="reset" class="btn-r" value="RESET">
+		</div>
+	</form>
+	<script type="text/javascript">
+		/*function getToday() {
+		 	var date = new Date();
+		 	var year = date.getFullYear();
+		 	var month = date.getMonth()+1;
+		 	var todayDate = String(date.getDate()).padStart(2,'0');
+		 	var datePattern = month + '/ ' + todayDate + '/ ' + year;
+		 	document.getElementById("f-date").value = datePattern;
+		 	document.write(datePattern);
+		}*/
+
+		function validateForm() {
+			let f = document.forms["myForm"];
+			let email = f["f-email"].value;
+			let name = f["f-name"].value;
+			let address = f["f-address"].value;
+			let date = f["f-date"].value;
+			let item = f["f-item"].value;
+			let qty = f["f-qty"].value;
+			let detail = f["f-detail"].value;
+			let check = f["f-check"].value;
+			var chara = /^[a-zA-Z ]+$/;
+			
+			if (email == "") {
+				alert("Email masih kosong!");
+				return false;
+			}
+
+			if (name == "") {
+				alert("Nama masih kosong!");
+				return false;
+			} /*else if(name.value.match(chara)){
+				alert("Nama harus berupa abjad!");
+			}*/
+
+			if (address == "") {
+				alert("Alamat masih kosong!");
+				return false;
+			}
+
+			if (date == "") {
+				alert("Tanggal belum ditentukan!");
+				return false;
+			}
+
+			if (item == "") {
+				alert("Barang masih kosong!");
+				return false;
+			}
+
+			if (qty == "") {
+				alert("Jumlah barang belum diisi!");
+				return false;
+			} else if (isNaN(qty) || qty < 3) {
+				alert("Periksa jumlah barang!");
+				return false;
+			}
+
+			if (detail.length > 255) {
+				alert("Keterangan melebihi batas!");
+				return false;
+			}
+		} 
+	</script>
+</body>
+</html>
